@@ -5,10 +5,16 @@ import { AppComponent } from './app.component';
 import { CoronaComponent } from './corona/corona.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapChartComponent } from './map-chart/map-chart.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
-  declarations: [AppComponent, CoronaComponent, MapChartComponent],
+  declarations: [
+    AppComponent,
+    CoronaComponent,
+    MapChartComponent,
+    MainPageComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
