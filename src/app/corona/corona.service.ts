@@ -11,11 +11,8 @@ export class CoronaService {
 
   constructor(private http: HttpClient) {}
 
-  getCoronaData(): Observable<ICorona[]> {
-    return this.http.get<ICorona[]>(this.url).pipe(
-      tap((data) => console.log('All: ' + JSON.stringify(data))),
-      catchError(this.handleError)
-    );
+  getCoronaData(): Observable<ICorona> {
+    return this.http.get<ICorona>(this.url).pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {
