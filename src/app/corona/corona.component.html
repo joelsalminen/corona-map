@@ -2,6 +2,7 @@
   <app-map-chart
     *ngIf="countryData && countryData.length"
     [countryData]="countryData"
+    (countryClick)="onCountryClick($event)"
   ></app-map-chart>
 
   <div *ngIf="!countryData || !countryData.length">Loading...</div>

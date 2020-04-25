@@ -25,4 +25,8 @@ export class CoronaComponent implements OnInit {
       },
     });
   }
+
+  onCountryClick(id: string): void {
+    console.log('received id:', id);
+  }
 }

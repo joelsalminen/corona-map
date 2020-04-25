@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
@@ -12,8 +12,13 @@ import { IMapData } from '../corona/mapData';
 })
 export class MapChartComponent implements OnInit {
   @Input() countryData: IMapData[] = [];
+  @Output() countryClick: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
+
+  ngOnInit(): void {
+    this.populateMap(this.countryData);
+  }
 
   populateMap(countryData: IMapData[]): void {
     var chart = am4core.create('chartdiv', am4maps.MapChart);
@@ -30,6 +35,10 @@ export class MapChartComponent implements OnInit {
     polygonTemplate.tooltipText = '{name}';
     polygonTemplate.fill = am4core.color('#999');
     polygonTemplate.tooltipText = '{name}: {value}';
+    polygonTemplate.events.on('hit', (e) => {
+      console.log(e.target.dataItem.dataContext);
+      this.onClick(e.target.dataItem.dataContext);
+    });
 
     var hs = polygonTemplate.states.create('hover');
     hs.properties.fill = am4core.color('#69A2B0');
@@ -49,7 +58,8 @@ export class MapChartComponent implements OnInit {
     polygonSeries.data = countryData;
   }
 
-  ngOnInit(): void {
-    this.populateMap(this.countryData);
+  onClick(object: any): void {
+    console.log('onclick');
+    this.countryClick.emit(object.id);
   }
 }
