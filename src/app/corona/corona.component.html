@@ -7,7 +7,7 @@
     ></app-map-chart>
   </div>
 
-  <div *ngIf="!countryData || !countryData.length">Loading...</div>
+  <app-loading *ngIf="!countryData || !countryData.length"></app-loading>
 
   <app-corona-table
     *ngIf="selectedCountry"

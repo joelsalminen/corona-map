@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MapChartComponent } from './map-chart/map-chart.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { CoronaTableComponent } from './corona-table/corona-table.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
@@ -16,6 +17,7 @@ import { CoronaTableComponent } from './corona-table/corona-table.component';
     MapChartComponent,
     MainPageComponent,
     CoronaTableComponent,
+    LoadingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
