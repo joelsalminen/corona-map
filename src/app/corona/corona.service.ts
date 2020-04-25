@@ -6,7 +6,7 @@ import { ICountry } from './countries';
 import { ICorona } from './corona';
 
 @Injectable({ providedIn: 'root' })
-export class MapChartService {
+export class CoronaService {
   url: string = 'https://api.covid19api.com/summary';
 
   constructor(private http: HttpClient) {}

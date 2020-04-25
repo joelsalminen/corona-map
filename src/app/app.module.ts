@@ -2,17 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MapChartComponent } from './map-chart/map-chart.component';
+import { CoronaComponent } from './corona/corona.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MapChartComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, CoronaComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
