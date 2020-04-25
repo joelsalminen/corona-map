@@ -9,6 +9,7 @@ import { ICountry } from './countries';
 })
 export class CoronaComponent implements OnInit {
   countries: ICountry[];
+  countryData: any = [];
 
   constructor(private coronaService: CoronaService) {}
 
@@ -16,6 +17,10 @@ export class CoronaComponent implements OnInit {
     this.coronaService.getCoronaData().subscribe({
       next: (coronaData) => {
         this.countries = coronaData.Countries;
+        this.countryData = this.countries.map((country) => ({
+          id: country.CountryCode,
+          value: country.TotalConfirmed,
+        }));
         console.log(coronaData.Countries);
       },
     });

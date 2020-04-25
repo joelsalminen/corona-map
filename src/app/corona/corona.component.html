@@ -1,6 +1,8 @@
 <div>
   <app-map-chart
-    *ngIf="countries && countries.length"
-    [countries]="countries"
+    *ngIf="countryData && countryData.length"
+    [countryData]="countryData"
   ></app-map-chart>
+
+  <div *ngIf="!countryData || !countryData.length">Loading...</div>
 </div>
