@@ -36,7 +36,6 @@ export class MapChartComponent implements OnInit {
     polygonTemplate.fill = am4core.color('#999');
     polygonTemplate.tooltipText = '{name}: {value}';
     polygonTemplate.events.on('hit', (e) => {
-      console.log(e.target.dataItem.dataContext);
       this.onClick(e.target.dataItem.dataContext);
     });
 
@@ -59,7 +58,6 @@ export class MapChartComponent implements OnInit {
   }
 
   onClick(object: any): void {
-    console.log('onclick');
     this.countryClick.emit(object.id);
   }
 }
