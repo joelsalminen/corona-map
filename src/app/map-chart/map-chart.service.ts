@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 import { ICountry } from './countries';
+import { ICorona } from './corona';
 
 @Injectable({ providedIn: 'root' })
 export class MapChartService {
+  url: string = 'https://api.covid19api.com/summary';
+
   constructor(private http: HttpClient) {}
-  url: string = '';
-  getCoronaData(): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(this.url).pipe(
+
+  getCoronaData(): Observable<ICorona[]> {
+    return this.http.get<ICorona[]>(this.url).pipe(
       tap((data) => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
