@@ -1,1 +1,6 @@
-<p>corona works!</p>
+<div>
+  <app-map-chart
+    *ngIf="countries && countries.length"
+    [countries]="countries"
+  ></app-map-chart>
+</div>
