@@ -14,6 +14,5 @@ export class MainPageComponent implements OnInit {
 
   toggleStarted(): void {
     this.started = !this.started;
-    console.log(this.started);
   }
 }

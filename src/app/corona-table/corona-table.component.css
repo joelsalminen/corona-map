@@ -2,3 +2,7 @@ table {
   margin-top: 5rem;
   width: 100%;
 }
+
+th {
+  font-weight: 700;
+}

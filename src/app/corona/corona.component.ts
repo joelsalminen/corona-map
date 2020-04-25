@@ -22,7 +22,6 @@ export class CoronaComponent implements OnInit {
           id: country.CountryCode,
           value: country.TotalConfirmed,
         }));
-        console.log(coronaData.Countries);
       },
     });
   }
@@ -31,6 +30,5 @@ export class CoronaComponent implements OnInit {
     this.selectedCountry = this.countries.find(
       (country: ICountry) => country.CountryCode === id
     );
-    console.log('received id:', id);
   }
 }

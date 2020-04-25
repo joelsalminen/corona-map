@@ -1,9 +1,11 @@
 <div>
-  <app-map-chart
-    *ngIf="countryData && countryData.length"
-    [countryData]="countryData"
-    (countryClick)="onCountryClick($event)"
-  ></app-map-chart>
+  <div class="map-container" *ngIf="countryData && countryData.length">
+    <h1>Deaths by country</h1>
+    <app-map-chart
+      [countryData]="countryData"
+      (countryClick)="onCountryClick($event)"
+    ></app-map-chart>
+  </div>
 
   <div *ngIf="!countryData || !countryData.length">Loading...</div>
 
