@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CoronaService } from './corona.service';
-import { ICountry } from './countries';
+import { Component, OnInit } from "@angular/core";
+import { CoronaService } from "./corona.service";
+import { ICountry } from "./countries";
 
 @Component({
-  selector: 'app-corona',
-  templateUrl: './corona.component.html',
-  styleUrls: ['./corona.component.css'],
+  selector: "app-corona",
+  templateUrl: "./corona.component.html",
+  styleUrls: ["./corona.component.css"]
 })
 export class CoronaComponent implements OnInit {
   countries: ICountry[];
@@ -16,13 +16,13 @@ export class CoronaComponent implements OnInit {
 
   ngOnInit(): void {
     this.coronaService.getCoronaData().subscribe({
-      next: (coronaData) => {
+      next: coronaData => {
         this.countries = coronaData.Countries;
-        this.countryData = this.countries.map((country) => ({
+        this.countryData = this.countries.map(country => ({
           id: country.CountryCode,
-          value: country.TotalConfirmed,
+          value: country.TotalDeaths
         }));
-      },
+      }
     });
   }
 
