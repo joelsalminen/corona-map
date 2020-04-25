@@ -10,6 +10,7 @@ import { ICountry } from './countries';
 export class CoronaComponent implements OnInit {
   countries: ICountry[];
   countryData: any = [];
+  selectedCountry: ICountry;
 
   constructor(private coronaService: CoronaService) {}
 
@@ -27,6 +28,9 @@ export class CoronaComponent implements OnInit {
   }
 
   onCountryClick(id: string): void {
+    this.selectedCountry = this.countries.find(
+      (country: ICountry) => country.CountryCode === id
+    );
     console.log('received id:', id);
   }
 }

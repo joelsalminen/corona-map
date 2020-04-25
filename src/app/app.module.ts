@@ -6,6 +6,7 @@ import { CoronaComponent } from './corona/corona.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapChartComponent } from './map-chart/map-chart.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { CoronaTableComponent } from './corona-table/corona-table.component';
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
@@ -14,6 +15,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     CoronaComponent,
     MapChartComponent,
     MainPageComponent,
+    CoronaTableComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
